@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using XamlBasicsV3.Models;
 
-namespace XamlBasicsV3.Repo
+namespace XamlBasicsV3.Services
 {
     public class DataGenerator
     {

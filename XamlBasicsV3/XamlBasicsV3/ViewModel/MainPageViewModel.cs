@@ -6,20 +6,17 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using XamlBasicsV3.Models;
-using XamlBasicsV3.Repo;
+using XamlBasicsV3.Services;
 
-namespace XamlBasicsV3
+namespace XamlBasicsV3.ViewModel
 {
-    public partial class MainPage : ContentPage
+    public class MainPageViewModel
     {
         public ObservableCollection<Grouping<string, Entity>> TheList { get; set; }
-        public MainPage()
+        public MainPageViewModel()
         {
             Init();
-            InitializeComponent();
-            BindingContext = TheList;
         }
-
         private void Init()
         {
             var listOfEntities = DataGenerator.getGeneratedEntities();
@@ -28,9 +25,6 @@ namespace XamlBasicsV3
             TheList = new ObservableCollection<Grouping<string, Entity>>(sorted);
         }
 
-        public void OnItemTapped(object o, ItemTappedEventArgs e)
-        {
-            DisplayAlert("Info", (e.Item as Entity).StringValue, "Ok");
-        }
+
     }
 }

@@ -2,13 +2,13 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:XamlBasicsV3"
-             x:Class="XamlBasicsV3.MainPage">
+             x:Class="XamlBasicsV3.View.MainPage">
 
   <StackLayout
            VerticalOptions="Start"
            HorizontalOptions="Center" >
     <Label Text="Entity List" FontSize="25" />
-    <ListView x:Name="somelist" ItemsSource="{Binding .}"
+    <ListView x:Name="somelist" ItemsSource="{Binding TheList}"
               ItemTapped="OnItemTapped"
               IsGroupingEnabled="True"
               HasUnevenRows="True"
