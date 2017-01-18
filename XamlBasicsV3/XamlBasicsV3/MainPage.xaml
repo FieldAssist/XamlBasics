@@ -5,10 +5,37 @@
              x:Class="XamlBasicsV3.MainPage">
 
   <StackLayout
-           VerticalOptions="Center"
+           VerticalOptions="Start"
            HorizontalOptions="Center" >
     <Label Text="Entity List" FontSize="20" />
-    <ListView x:Name="somelist" ItemsSource="{Binding TheList}"  ItemTapped="OnItemTapped">
+    <ListView x:Name="somelist" ItemsSource="{Binding .}"
+              ItemTapped="OnItemTapped"
+              IsGroupingEnabled="True"
+              HasUnevenRows="True"
+              GroupShortNameBinding="{Binding Key}"
+      >
+      <ListView.GroupHeaderTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <ViewCell.View>
+              <Label VerticalTextAlignment="Center" Text="{Binding Key}" FontAttributes="Bold"  FontSize="16" TextColor="Red"/>
+
+            </ViewCell.View>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.GroupHeaderTemplate>
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <ViewCell.View>
+              <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+                <Label Text="{Binding Id}" FontAttributes="Bold" TextColor="Blue"/>
+                <Label Text="{Binding StringValue}"/>
+              </StackLayout>
+            </ViewCell.View>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
     </ListView>
 
   </StackLayout>

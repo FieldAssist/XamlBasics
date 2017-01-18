@@ -41,6 +41,7 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\Grouping.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repo\DataGenerator.cs" />
     <Compile Include="Models\Entity.cs" />
