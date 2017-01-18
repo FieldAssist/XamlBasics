@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace XamlBasicsV3.Models
 {
-    public class Grouping<K, T> : ObservableCollection<T>
+    public class EntityGrouping<K, T> : ObservableCollection<T>
     {
         public K Key { get; private set; }
-        public Grouping(K Key, IEnumerable<T> items)
+        public EntityGrouping(K Key, IEnumerable<T> items)
         {
             this.Key = Key;
             foreach (var item in items)

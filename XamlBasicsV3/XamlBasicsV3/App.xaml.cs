@@ -14,7 +14,7 @@ namespace XamlBasicsV3
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new WeatherPage();
         }
 
         protected override void OnStart()

@@ -12,7 +12,7 @@ namespace XamlBasicsV3.ViewModel
 {
     public class MainPageViewModel
     {
-        public ObservableCollection<Grouping<string, Entity>> TheList { get; set; }
+        public ObservableCollection<EntityGrouping<string, Entity>> TheList { get; set; }
         public MainPageViewModel()
         {
             Init();
@@ -21,8 +21,8 @@ namespace XamlBasicsV3.ViewModel
         {
             var listOfEntities = DataGenerator.getGeneratedEntities();
             var sorted = listOfEntities.OrderBy(x => x.StringValue).GroupBy(c => c.StringValue[0]).
-                Select(thegroup => new Grouping<string, Entity>(thegroup.Key.ToString(), thegroup));
-            TheList = new ObservableCollection<Grouping<string, Entity>>(sorted);
+                Select(thegroup => new EntityGrouping<string, Entity>(thegroup.Key.ToString(), thegroup));
+            TheList = new ObservableCollection<EntityGrouping<string, Entity>>(sorted);
         }
 
 
