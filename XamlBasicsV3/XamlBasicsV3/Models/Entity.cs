@@ -9,11 +9,7 @@ namespace XamlBasicsV3.Models
         public string StringValue { get; set; }
         public bool Favourite
         {
-            get
-            {
-                return Id % 2 == 1 ? true : false;
-            }
-
+            get; set;
         }
 
         public override string ToString()

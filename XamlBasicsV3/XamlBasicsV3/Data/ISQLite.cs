@@ -9,6 +9,6 @@ namespace XamlBasicsV3.Data
 {
     public interface ISQLite
     {
-        SQLiteConnection GetConnection();
+        SQLiteConnection GetConnection(string DbName);
     }
 }

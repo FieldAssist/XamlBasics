@@ -4,17 +4,29 @@ using System.Linq;
 using System.Text;
 
 using Xamarin.Forms;
+using XamlBasicsV3.Data;
 using XamlBasicsV3.View;
 
 namespace XamlBasicsV3
 {
     public partial class App : Application
     {
+        private static EntityDatabase database;
+        public static EntityDatabase Database
+        {
+            get
+            {
+                if (database == null)
+                    database = new EntityDatabase();
+                return database;
+            }
+        }
+
         public App()
         {
             InitializeComponent();
 
-            MainPage = new WeatherPage();
+            MainPage = new NavigationPage(new MainPage());
         }
 
         protected override void OnStart()

@@ -24,10 +24,13 @@ namespace XamlBasicsV3.View
 
         public void OnItemTapped(object o, ItemTappedEventArgs e)
         {
-            DisplayAlert("Info", (e.Item as Entity).StringValue, "Ok");
+            var entityFormPrefilled = new EntityForm(e.Item as Entity);
+
+            Navigation.PushAsync(entityFormPrefilled);
         }
-
-
-
+        public void OnClick(object o, EventArgs e)
+        {
+            Navigation.PushAsync(new EntityForm());
+        }
     }
 }

@@ -15,7 +15,7 @@ namespace XamlBasicsV3.Data
         static object locker = new object();
         public EntityDatabase()
         {
-            database = DependencyService.Get<ISQLite>().GetConnection();
+            database = DependencyService.Get<ISQLite>().GetConnection("Entity.db");
             database.CreateTable<Entity>();
         }
 

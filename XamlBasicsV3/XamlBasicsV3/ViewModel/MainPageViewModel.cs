@@ -19,7 +19,8 @@ namespace XamlBasicsV3.ViewModel
         }
         private void Init()
         {
-            var listOfEntities = DataGenerator.getGeneratedEntities();
+            //var listOfEntities = DataGenerator.getGeneratedEntities();
+            var listOfEntities = App.Database.GetEntities();
             var sorted = listOfEntities.OrderBy(x => x.StringValue).GroupBy(c => c.StringValue[0]).
                 Select(thegroup => new EntityGrouping<string, Entity>(thegroup.Key.ToString(), thegroup));
             TheList = new ObservableCollection<EntityGrouping<string, Entity>>(sorted);

@@ -1,12 +1,9 @@
-﻿using System;
-
-using Android.App;
+﻿using Android.App;
 using Android.Content.PM;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-using Android.OS;
 using XamlBasicsV3.Data;
+using SQLite;
+using Android.OS;
+using System.IO;
 
 namespace XamlBasicsV3.Droid
 {
@@ -24,5 +21,6 @@ namespace XamlBasicsV3.Droid
             LoadApplication(new App());
         }
     }
+
 }
 

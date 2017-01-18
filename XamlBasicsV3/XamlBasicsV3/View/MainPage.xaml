@@ -7,6 +7,7 @@
   <StackLayout
            VerticalOptions="Start"
            HorizontalOptions="Center" >
+    <Button Text="New Entry" Clicked="OnClick" />
     <Label Text="Entity List" FontSize="25" />
     <ListView x:Name="somelist" ItemsSource="{Binding TheList}"
               ItemTapped="OnItemTapped"
@@ -18,7 +19,7 @@
         <DataTemplate>
           <ViewCell>
             <ViewCell.View>
-              <Label VerticalTextAlignment="Center" Text="{Binding Key}" FontAttributes="Bold"  FontSize="16" TextColor="Red"/>
+              <Label VerticalTextAlignment="Center" Text="{Binding Key}" FontAttributes="Bold"  FontSize="22" TextColor="Red"/>
 
             </ViewCell.View>
           </ViewCell>
@@ -29,8 +30,8 @@
           <ViewCell>
             <ViewCell.View>
               <StackLayout Orientation="Horizontal" VerticalOptions="Center">
-                <Label Text="{Binding Id}" FontAttributes="Bold"  FontSize="12" TextColor="Blue"/>
-                <Label Text="{Binding StringValue}" FontSize="10">
+                <Label Text="{Binding Id}" FontAttributes="Bold"  FontSize="20" TextColor="Blue"/>
+                <Label Text="{Binding StringValue}" FontSize="20">
                   <Label.Triggers>
                     <DataTrigger TargetType="Label"
                                 Binding="{Binding Favourite}"
