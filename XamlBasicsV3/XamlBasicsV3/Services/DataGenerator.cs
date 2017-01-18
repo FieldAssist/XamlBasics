@@ -23,8 +23,9 @@ namespace XamlBasicsV3.Services
                 Entity entity = new Entity()
                 {
                     Id = i,
-                    StringValue = stringValues[Random.Next(stringValues.Count - 1)]
+                    StringValue = stringValues[Random.Next(stringValues.Count - 1)],
                 };
+
                 values.Add(entity);
             }
             return values;

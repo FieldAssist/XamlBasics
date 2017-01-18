@@ -4,6 +4,13 @@
     {
         public long Id { get; set; }
         public string StringValue { get; set; }
+        public bool Favourite
+        {
+            get
+            {
+                return Id % 2 == 1 ? true : false;
+            }
+        }
 
         public override string ToString()
         {
