@@ -38,6 +38,8 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Data\EntityDatabase.cs" />
+    <Compile Include="Data\ISQLite.cs" />
     <Compile Include="Helper\RESTHelper.cs" />
     <Compile Include="Models\Weather\WeatherObservation.cs" />
     <Compile Include="Models\Weather\WeatherResult.cs" />
