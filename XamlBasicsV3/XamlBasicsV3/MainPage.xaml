@@ -4,8 +4,13 @@
              xmlns:local="clr-namespace:XamlBasicsV3"
              x:Class="XamlBasicsV3.MainPage">
 
-  <Label Text="Welcome to Xamarin Forms!"
+  <StackLayout
            VerticalOptions="Center"
-           HorizontalOptions="Center" />
+           HorizontalOptions="Center" >
+    <Label Text="Entity List" FontSize="20" />
+    <ListView x:Name="somelist" ItemsSource="{Binding TheList}"  ItemTapped="OnItemTapped">
+    </ListView>
+
+  </StackLayout>
 
 </ContentPage>
