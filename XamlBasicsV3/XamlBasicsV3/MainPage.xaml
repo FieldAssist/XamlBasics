@@ -7,7 +7,7 @@
   <StackLayout
            VerticalOptions="Start"
            HorizontalOptions="Center" >
-    <Label Text="Entity List" FontSize="20" />
+    <Label Text="Entity List" FontSize="25" />
     <ListView x:Name="somelist" ItemsSource="{Binding .}"
               ItemTapped="OnItemTapped"
               IsGroupingEnabled="True"
@@ -29,8 +29,8 @@
           <ViewCell>
             <ViewCell.View>
               <StackLayout Orientation="Horizontal" VerticalOptions="Center">
-                <Label Text="{Binding Id}" FontAttributes="Bold" TextColor="Blue"/>
-                <Label Text="{Binding StringValue}"/>
+                <Label Text="{Binding Id}" FontAttributes="Bold"  FontSize="12" TextColor="Blue"/>
+                <Label Text="{Binding StringValue}" FontSize="10"/>
               </StackLayout>
             </ViewCell.View>
           </ViewCell>
