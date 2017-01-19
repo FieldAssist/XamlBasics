@@ -14,9 +14,9 @@ namespace XamlBasicsV3.View
     public partial class MainPage : ContentPage
     {
         MainPageViewModel vm;
-        public MainPage()
+        public MainPage(int option)
         {
-            vm = new MainPageViewModel();
+            vm = new MainPageViewModel(option);
             BindingContext = vm;
             InitializeComponent();
 

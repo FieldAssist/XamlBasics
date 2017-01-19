@@ -26,7 +26,7 @@ namespace XamlBasicsV3
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new MainPage());
+            MainPage = new NavigationPage(new StartUpPage());
         }
 
         protected override void OnStart()

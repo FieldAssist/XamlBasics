@@ -12,15 +12,26 @@ namespace XamlBasicsV3.ViewModel
 {
     public class MainPageViewModel
     {
+        private readonly IEnumerable<Entity> listOfEntities;
+
         public ObservableCollection<EntityGrouping<string, Entity>> TheList { get; set; }
-        public MainPageViewModel()
+        public MainPageViewModel(int option)
         {
+            switch (option)
+            {
+                case 1:
+                default:
+                    listOfEntities = DataGenerator.getGeneratedEntities();
+                    break;
+                case 2:
+                    listOfEntities = App.Database.GetEntities();
+                    break;
+            }
             Init();
         }
         private void Init()
         {
-            // var listOfEntities = DataGenerator.getGeneratedEntities();
-            var listOfEntities = App.Database.GetEntities();
+
             var sorted = listOfEntities.OrderBy(x => x.StringValue).GroupBy(c => c.StringValue[0]).
                 Select(thegroup => new EntityGrouping<string, Entity>(thegroup.Key.ToString(), thegroup));
             TheList = new ObservableCollection<EntityGrouping<string, Entity>>(sorted);

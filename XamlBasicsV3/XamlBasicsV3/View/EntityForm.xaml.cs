@@ -45,7 +45,7 @@ namespace XamlBasicsV3.View
             };
 
             database.SaveEntity(entity);
-            Navigation.PushAsync(new MainPage());
+            Navigation.PushAsync(new MainPage(2));
         }
         public void OnCancel(object o, EventArgs e)
         {
