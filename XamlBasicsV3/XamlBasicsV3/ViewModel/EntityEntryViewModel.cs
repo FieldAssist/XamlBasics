@@ -22,7 +22,7 @@ namespace XamlBasicsV3.ViewModel
         public void notifyChanges()
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("StringValue"));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ISFavourite"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("IsFavourite"));
         }
 
     }

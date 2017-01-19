@@ -13,22 +13,24 @@ namespace XamlBasicsV3.View
 {
     public partial class EntityForm : ContentPage
     {
-        public EntityEntryViewModel formEntry { get; set; }
+        public EntityEntryViewModel vm { get; set; }
         public long UpdateId { get; set; }
         public EntityForm()
         {
-            formEntry = new EntityEntryViewModel("", false);
-            BindingContext = formEntry;
+            vm = new EntityEntryViewModel("", false);
+            BindingContext = vm;
             InitializeComponent();
         }
         public EntityForm(Entity entity)
         {
-            BindingContext = formEntry;
+
             UpdateId = entity.Id;
-            formEntry = new EntityEntryViewModel(entity.StringValue, entity.Favourite);
+            vm = new EntityEntryViewModel(entity.StringValue, entity.Favourite);
+            BindingContext = vm;
             InitializeComponent();
-            StringValue.Text = entity.StringValue;
-            IsFavourite.IsToggled = entity.Favourite;
+            vm.notifyChanges();
+            //StringValue.Text = entity.StringValue;
+            //IsFavourite.IsToggled = entity.Favourite;
         }
 
 
