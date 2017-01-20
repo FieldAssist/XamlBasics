@@ -21,7 +21,7 @@ namespace XamlBasicsV3.View
 
             if (v.Id == btnStaticList.Id)
             {
-                Navigation.PushAsync(new MainPage(1));
+                Navigation.PushAsync(new MainPage(false));
             }
             else if (v.Id == btnRESTClientPage.Id)
             {
@@ -29,11 +29,11 @@ namespace XamlBasicsV3.View
             }
             else if (v.Id == btnDataBase.Id)
             {
-                Navigation.PushAsync(new MainPage(2));
+                Navigation.PushAsync(new MainPage(true));
             }
-            else// if (v.Id == btnGraph.Id)
+            else if (v.Id == btnGraph.Id)
             {
-                Navigation.PushAsync(new MainPage(1));
+                Navigation.PushAsync(new PlotsAndChartView());
             }
 
         }

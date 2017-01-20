@@ -1,4 +1,6 @@
-﻿using System;
+﻿using OxyPlot;
+using OxyPlot.Xamarin.Forms;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

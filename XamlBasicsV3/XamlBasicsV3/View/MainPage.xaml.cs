@@ -14,14 +14,18 @@ namespace XamlBasicsV3.View
     public partial class MainPage : ContentPage
     {
         MainPageViewModel vm;
-        public MainPage(int option)
+        public MainPage(bool isDatabase)
         {
-            vm = new MainPageViewModel(option);
+            vm = new MainPageViewModel(isDatabase);
             BindingContext = vm;
             InitializeComponent();
 
         }
-
+        protected override void OnAppearing()
+        {
+            vm.notifyChanges();
+            base.OnAppearing();
+        }
         public void OnItemTapped(object o, ItemTappedEventArgs e)
         {
             var entityFormPrefilled = new EntityForm(e.Item as Entity);
@@ -31,6 +35,10 @@ namespace XamlBasicsV3.View
         public void OnClick(object o, EventArgs e)
         {
             Navigation.PushAsync(new EntityForm());
+        }
+        public void OnRefresh(object o, EventArgs e)
+        {
+            vm.notifyChanges();
         }
     }
 }

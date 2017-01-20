@@ -28,7 +28,7 @@ namespace XamlBasicsV3.View
             vm = new EntityEntryViewModel(entity.StringValue, entity.Favourite);
             BindingContext = vm;
             InitializeComponent();
-            vm.notifyChanges();
+            //vm.notifyChanges();
             //StringValue.Text = entity.StringValue;
             //IsFavourite.IsToggled = entity.Favourite;
         }
@@ -43,9 +43,8 @@ namespace XamlBasicsV3.View
                 Favourite = IsFavourite.IsToggled,
                 Id = UpdateId
             };
-
             database.SaveEntity(entity);
-            Navigation.PushAsync(new MainPage(2));
+            Navigation.PopAsync();
         }
         public void OnCancel(object o, EventArgs e)
         {

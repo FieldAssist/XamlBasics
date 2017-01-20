@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,33 +11,40 @@ using XamlBasicsV3.Services;
 
 namespace XamlBasicsV3.ViewModel
 {
-    public class MainPageViewModel
+    public class MainPageViewModel : INotifyPropertyChanged
     {
-        private readonly IEnumerable<Entity> listOfEntities;
+        private IEnumerable<Entity> listOfEntities;
+        private bool isDatabase;
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public ObservableCollection<EntityGrouping<string, Entity>> TheList { get; set; }
-        public MainPageViewModel(int option)
+        public MainPageViewModel(bool isDatabase)
         {
-            switch (option)
+            this.isDatabase = isDatabase;
+            Init(isDatabase);
+        }
+        private void Init(bool isDatabase)
+        {
+            switch (isDatabase)
             {
-                case 1:
-                default:
+                case false:
                     listOfEntities = DataGenerator.getGeneratedEntities();
                     break;
-                case 2:
+                case true:
                     listOfEntities = App.Database.GetEntities();
                     break;
             }
-            Init();
-        }
-        private void Init()
-        {
-
             var sorted = listOfEntities.OrderBy(x => x.StringValue).GroupBy(c => c.StringValue[0]).
                 Select(thegroup => new EntityGrouping<string, Entity>(thegroup.Key.ToString(), thegroup));
             TheList = new ObservableCollection<EntityGrouping<string, Entity>>(sorted);
         }
 
+        public void notifyChanges()
+        {
+            Init(isDatabase);
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("TheList"));
+        }
 
     }
 }

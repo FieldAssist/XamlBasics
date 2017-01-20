@@ -16,7 +16,7 @@ namespace XamlBasicsV3.Droid
             ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(bundle);
-
+            OxyPlot.Xamarin.Forms.Platform.Android.PlotViewRenderer.Init();
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App());
         }

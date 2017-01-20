@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamlBasicsV3.View.PlotsAndChartView"
+            xmlns:oxy="clr-namespace:OxyPlot.Xamarin.Forms;assembly=OxyPlot.Xamarin.Forms"    >
+
+  <!--<StackLayout  VerticalOptions="Center" HorizontalOptions="Center" >-->
+  <!--<Button Text="Refresh" Clicked="OnRefresh"/>-->
+  <Grid>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="*" />
+    </Grid.ColumnDefinitions>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="4*" />
+      <RowDefinition Height="1*" />
+    </Grid.RowDefinitions>
+    <oxy:PlotView  Model="{Binding ThePlotModel}" Grid.Row="0"/>
+    <Button HorizontalOptions="Center" VerticalOptions="Center" Text="Refresh" Clicked="OnRefresh" Grid.Row="1"></Button>
+  </Grid>
+  <!--</StackLayout>-->
+</ContentPage>
