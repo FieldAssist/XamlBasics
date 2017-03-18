@@ -35,6 +35,10 @@ namespace XamlBasicsV3.View
             {
                 Navigation.PushAsync(new PlotsAndChartView());
             }
+            else if (v.Id == btnScan.Id)
+            {
+                Navigation.PushAsync(new QRCodeScanView());
+            }
 
         }
     }

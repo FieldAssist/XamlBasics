@@ -23,7 +23,6 @@ namespace XamlBasicsV3
                 return database;
             }
         }
-
         public App()
         {
             InitializeComponent();

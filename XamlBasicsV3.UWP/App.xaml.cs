@@ -1,7 +1,9 @@
-﻿using System;
+﻿using OxyPlot.Xamarin.Forms.Platform.UWP;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
@@ -41,9 +43,20 @@ namespace XamlBasicsV3.UWP
         /// <param name="e">Details about the launch request and process.</param>
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
+            PlotViewRenderer.Init();
             // Initialize Xamarin.Forms here
             Xamarin.Forms.Forms.Init(e);
-            OxyPlot.Xamarin.Forms.Platform.UWP.PlotViewRenderer.Init();
+            // you'll need to add `using System.Reflection;`
+            //List<Assembly> assembliesToInclude = new List<Assembly>();
+
+            //////Now, add in all the assemblies your app uses
+            //assembliesToInclude.Add(typeof(PlotViewRenderer).GetTypeInfo().Assembly);
+
+            //////Also do this for all your other 3rd party libraries
+
+            //Xamarin.Forms.Forms.Init(e, assembliesToInclude);
+            //// replaces Xamarin.Forms.Forms.Init(e);
+            //Xamarin.Forms.DependencyService.Register<PlotViewRenderer>();
 
 #if DEBUG
             if (System.Diagnostics.Debugger.IsAttached)
