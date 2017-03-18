@@ -2,10 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XamlBasicsV3.View.QRCodeScanView">
-
-    <StackLayout Padding="30">
-
-        <Button x:Name="Search" Clicked="OnClicked" Text="Search"/>
-
+    <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+        <Label Text="Value" TextColor="Green" WidthRequest="130" />
+        <Label Text="{Binding QRCodeValue}"  WidthRequest="150" />
     </StackLayout>
+
 </ContentPage>

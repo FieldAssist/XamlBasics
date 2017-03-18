@@ -5,24 +5,22 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Popups;
 using Xamarin.Forms;
-using XamlBasicsV3.Interfaces;
 using XamlBasicsV3.ViewModel;
+using ZXing;
 
 namespace XamlBasicsV3.View
 {
     public partial class QRCodeScanView : ContentPage
     {
+
         private QRCodeScanViewModel vm { get; set; }
-        public QRCodeScanView()
+
+        public QRCodeScanView(Result result)
         {
             vm = new QRCodeScanViewModel();
             BindingContext = vm;
+            vm.QRCodeValue = result.Text;
             InitializeComponent();
-        }
-        public async void OnClicked(object o, EventArgs e)
-        {
-            var url = await DependencyService.Get<IQrCodeScanningService>().ScanAsync();
-            Device.OpenUri(new Uri(url));
         }
     }
 }

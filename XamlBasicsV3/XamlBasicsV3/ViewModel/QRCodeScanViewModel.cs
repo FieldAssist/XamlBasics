@@ -13,16 +13,16 @@ namespace XamlBasicsV3.ViewModel
 {
     public class QRCodeScanViewModel : INotifyPropertyChanged
     {
-        public QRCodeScanViewModel()
+        public string QRCodeValue
         {
-
+            get; set;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         public void notifyChanges()
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ThePlotModel"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("QRCodeValue"));
         }
     }
 }
