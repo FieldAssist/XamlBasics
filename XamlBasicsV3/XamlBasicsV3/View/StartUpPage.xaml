@@ -8,5 +8,6 @@
         <Button x:Name="btnDataBase" Clicked="OnClick"  Text="Database"></Button>
         <Button x:Name="btnGraph" Clicked="OnClick"  Text="Show Graph"></Button>
         <Button x:Name="btnScan" Clicked="OnClick"  Text="Scan Code"></Button>
+        <Button x:Name="btnList" Clicked="OnClick"  Text="Grouped List"></Button>
     </StackLayout>
 </ContentPage>

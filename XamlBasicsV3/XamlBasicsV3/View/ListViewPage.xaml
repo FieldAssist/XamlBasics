@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:XamlBasicsV3"
+             x:Class="XamlBasicsV3.View.ListViewPage">
+
+    <StackLayout
+           VerticalOptions="Start"
+           HorizontalOptions="Center" >
+        <Button Text="New Entry" Clicked="OnClick" />
+        <Label Text="Entity List" FontSize="25" />
+        <ListView x:Name="somelist" ItemsSource="{Binding TheList}"
+              ItemTapped="OnItemTapped"
+              IsGroupingEnabled="True"
+              HasUnevenRows="True"
+              GroupShortNameBinding="{Binding Key.Header}"
+      >
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+                                <Label Text="{Binding Id}" FontAttributes="Bold"  FontSize="20" TextColor="Blue"/>
+                                <Label Text="{Binding Score}" FontAttributes="Bold"  FontSize="20" TextColor="Red"/>
+                                <Label Text="{Binding Name}" FontSize="20">
+
+                                    <Label.Triggers>
+                                        <DataTrigger TargetType="Label"
+                                Binding="{Binding IsImp}"
+                                Value="True"                    >
+                                            <Setter Property="TextColor" Value="Green" />
+                                        </DataTrigger>
+
+                                    </Label.Triggers>
+                                </Label>
+
+                            </StackLayout>
+
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Center">
+                                <Label VerticalTextAlignment="Center" Text="{Binding Key.Header}" FontAttributes="Bold"  FontSize="22" TextColor="Blue"/>
+                                <Label VerticalTextAlignment="Center" Text="{Binding Key.Score}" FontAttributes="Bold"  FontSize="22" TextColor="Red"/>
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.GroupHeaderTemplate>
+        </ListView>
+        <Button Clicked="OnRefresh" Text="Refresh"></Button>
+    </StackLayout>
+
+</ContentPage>

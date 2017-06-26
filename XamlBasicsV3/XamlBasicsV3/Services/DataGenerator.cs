@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using XamlBasicsV3.Models;
+using XamlBasicsV3.Models.ListView;
 
 namespace XamlBasicsV3.Services
 {
@@ -26,6 +27,35 @@ namespace XamlBasicsV3.Services
                     StringValue = stringValues[Random.Next(stringValues.Count - 1)],
                 };
 
+                values.Add(entity);
+            }
+            return values;
+        }
+        public static List<ParentEntity> GetGeneratedParents()
+        {
+            var Random = new Random();
+            var values = new List<ParentEntity>();
+            for (int i = 0; i < stringValues.Count-1; i++)
+            {
+                var entity = new ParentEntity()
+                {
+                    Id = i,
+                    Header = stringValues[Random.Next(stringValues.Count - 1)],                   
+                };
+                for (int j = 0; j < Random.Next(10); j++)
+                {
+                    var child = new ChildEntity()
+                    {
+                        Id = j,
+                        Name = stringValues[Random.Next(stringValues.Count - 1)],
+                        Score = Random.Next(10000) / 5,
+                        IsImp=Random.Next(2)>1
+                    };
+
+                    entity.ChildEntity.Add(child);
+                    
+                }
+                entity.Score = entity.ChildEntity.Sum(c => c.Score);
                 values.Add(entity);
             }
             return values;

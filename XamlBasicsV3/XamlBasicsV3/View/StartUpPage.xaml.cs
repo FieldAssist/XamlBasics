@@ -41,7 +41,10 @@ namespace XamlBasicsV3.View
             {
                 Navigation.PushAsync(getScanPage());
             }
-
+            else if (v.Id == btnList.Id)
+            {
+                Navigation.PushAsync(new ListViewPage());
+            }
         }
 
         private ZXingScannerPage getScanPage()

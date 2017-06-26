@@ -41,6 +41,7 @@
     <Compile Include="Data\EntityDatabase.cs" />
     <Compile Include="Data\ISQLite.cs" />
     <Compile Include="Helper\RESTHelper.cs" />
+    <Compile Include="Models\ListView\ChildEntity.cs" />
     <Compile Include="Models\Weather\WeatherObservation.cs" />
     <Compile Include="Models\Weather\WeatherResult.cs" />
     <Compile Include="OxyPlotExamples\AreaSeriesExamples.cs" />
@@ -65,12 +66,16 @@
     <Compile Include="OxyPlotExamples\TwoColorLineSeriesExamples.cs" />
     <Compile Include="Services\WeatherService.cs" />
     <Compile Include="ViewModel\EntityEntryViewModel.cs" />
+    <Compile Include="ViewModel\ListViewViewModel.cs" />
     <Compile Include="ViewModel\MainPageViewModel.cs" />
     <Compile Include="ViewModel\QRCodeScanViewModel.cs" />
     <Compile Include="ViewModel\PlotViewModel.cs" />
     <Compile Include="ViewModel\WeatherPageViewModel.cs" />
     <Compile Include="View\EntityForm.xaml.cs">
       <DependentUpon>EntityForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ListViewPage.xaml.cs">
+      <DependentUpon>ListViewPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -209,7 +214,12 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="View\ListViewPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
